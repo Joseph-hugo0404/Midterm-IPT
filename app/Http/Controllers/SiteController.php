@@ -13,6 +13,5 @@ class SiteController extends Controller
         $categories = Category::get()->sortBy('category');
         return view('pages.landing', compact('categories'));
         
-        // return view('pages.landing');
     }
 }

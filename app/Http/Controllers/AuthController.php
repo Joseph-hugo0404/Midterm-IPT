@@ -106,13 +106,6 @@ class AuthController extends Controller
         auth()->logout();
         return redirect('/login')->with('message', 'Logged out successfully');
     }
-
-
-    
-
-    
-    
-
     /**
      * Show the form for creating a new resource.
      *

@@ -19,7 +19,7 @@
             <div class="card mt-3">
 
                 <div class="card-header text-light text-center" style="background-color:#2c9fb1;">
-                    <h3 class="card-title" style="font-weight:400; font-size:20px; ">Create Your Post</h3>
+                    <h3 class="card-title" style="font-weight:400; font-size:20px; ">Create Post</h3>
 
                 </div>
                 <div class="card-body">

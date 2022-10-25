@@ -4,14 +4,14 @@
     <div class="container">
         <div class="row">
             @foreach ($users as $user)
+            
                 <div class="col-md-3 mb-1">
-
                     <div class="card p3 {{ $user->gender === 'female' ? 'female' : 'male' }}">
                         <div class="">
-                            <h4 class="text-center p-2">{{ $user->name }}</h4>
-                        
-
-                            <p class="text-light text-center">Total Posts: {{ $user->posts()->count() }}</p>
+                                <ul class="text-center">
+                            <a class="text-dark text-center" style="text-decoration: none; font-size: 25px; font-weight: bold; align-items: center" href="{{ url('users', ['id' => $user->id]) }}">{{ $user->name }}</a>
+                                </ul>
+                            <p class="text-light text-center">Posts: {{ $user->posts()->count() }}</p>
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
 
     <style>
         .female {
-            background-color: rgb(231, 133, 145);
+            background-color: rgb(0, 177, 6);
         }
 
         .male {

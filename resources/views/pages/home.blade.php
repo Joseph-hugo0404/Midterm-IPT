@@ -12,7 +12,7 @@
                             <div class="input-group">
                                 <span class="input-group-btn mr-2 mt-0">
                                     <button class="btn" type="submit" title="Search Post">
-                                        <span class="text-dark">Search</span>
+                                        <span class="text-dark"></span>
                                     </button>
                                 </span>
                                 <input type="text" class="form-control mr-2" name="post" placeholder="Search posts" id="post">
@@ -46,7 +46,7 @@
         <div class="card bg-dark">
             <div class="row">
                 @foreach ($posts as $post)
-                    <div class="col-md-4 mt-1">
+                    <div class="col-md-4 mt-1 mb-1">
 
                         <div class="card {{ $post->user->gender === 'female' ? 'female' : 'male' }}">
                             
@@ -55,20 +55,12 @@
                                             {{ $post->user->name }}</a>
 
                                         <div class="collapse navbar-collapse" id="navbarNavAlt">
-                                            <div class="navbar-nav ms-auto ">
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link dropdown-toggle text-light" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                            <div class="navbar-nav ms-auto"> 
+                                                <li class="nav-item">
+                                                    <a class="nav-link text-light" href="#" role="button"
+                                                        data-bs-toggle="" aria-expanded="false">
                                                         {{ $post->category->category }}
                                                     </a>
-                                                    <ul class="dropdown-menu">
-                                                        @foreach (App\Models\User::byCategory($post->category_id) as $user)
-                                                            <li><a class="dropdown-item"
-                                                                    href="{{ url('users', ['id' => $user->id]) }}">{{ $user->name }}</a>
-                                                            </li>
-                                                        @endforeach
-
-                                                    </ul>
                                                 </li>
                                             </div>
                                         </div>
@@ -87,7 +79,7 @@
                 @endforeach
             </div>
         </div>
-        <div class="d-flex ">
+        <div class="d-flex mt-1">
                 {{ $posts->links() }}
             </div> 
     </div>

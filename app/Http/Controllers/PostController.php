@@ -75,7 +75,6 @@ class PostController extends Controller
             'post'          =>  'required|string|max:255'
         ]);
         Post::create($request->all());
-        // return back()->with('status', 'Post published successfully.');
         return redirect('posts')->with('status', 'Post published successfully.');
     }
 }

@@ -3,10 +3,6 @@
 @section('content')
     <div class="container">
 
-        <div class="d-flex justify-content-end">
-            {{ $posts->links() }}
-        </div> 
-
         <button class="nav-item dropdown" style="width: 120px; top: -5px; left: 600px">
             <a class="nav-link dropdown-toggle text-dark" href="#" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -21,34 +17,23 @@
             </ul>
         </button>
 
-                <h1 class="text-light text-end" style="font-size:20px; font-weight:400;">
-                    {{ __($category->category . ' Posts') }}</h1>
-
             <div class="row" style="height: 100vh; overflow: auto">
                 @foreach ($posts as $post)
                     <div class="col-md-4 ">
 
                         <div class="card {{ $post->user->gender === 'female' ? 'female' : 'male' }}">
-                            <div class="card">
+                            <div class="card bg-white">
                                 <nav class="navbar navbar-expand-lg text-info mb-2">
-                                    <div class="container-fluid">
+                                    <div class="container-fluid" style="font-weight: bold">
                                             {{ $post->user->name }}</a>
 
                                         <div class="collapse navbar-collapse" id="navbarNavAlt">
                                             <div class="navbar-nav ms-auto">
-                                                <li class="nav-item dropdown">
-                                                    <a class="nav-link dropdown-toggle" href="#" role="button"
-                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                <li class="nav-item ">
+                                                    <a class="nav-link" href="#" role="button"
+                                                        data-bs-toggle="" aria-expanded="false">
                                                         {{ $post->category->category }}
                                                     </a>
-                                                    <ul class="dropdown-menu">
-                                                        @foreach (App\Models\User::byCategory($post->category_id) as $user)
-                                                            <li><a class="dropdown-item"
-                                                                    href="{{ url('users', ['id' => $user->id]) }}">{{ $user->name }}</a>
-                                                            </li>
-                                                        @endforeach
-
-                                                    </ul>
                                                 </li>
 
 
@@ -68,18 +53,23 @@
 
                             </div>
                         </div>
+                        
 
                     </div>
-                @endforeach
+                @endforeach 
+                <div class="d-flex" style="margin-top: -70px">
+                {{ $posts->links() }}
+            </div> 
             </div>
+           
     </div>
     <style>
         .female {
-            background-color: cyan;
+            background-color: rgb(146, 255, 100);
         }
 
         .male {
-            background-color: lightblue;
+            background-color: rgb(52, 52, 52);
         }
     </style>
 @endsection

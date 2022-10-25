@@ -21,20 +21,11 @@
 
                                     <div class="collapse navbar-collapse" id="navbarNavAlt">
                                         <div class="navbar-nav ms-auto">
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" role="button"
+                                            <li class="nav-item text-bg-primary">
+                                                <a class="nav-link text-light" href="#" role="button"
                                                     data-bs-toggle="dropdown" aria-expanded="false">
                                                     {{ $post->category->category }}
                                                 </a>
-                                                <ul class="dropdown-menu">
-                                                    @foreach (App\Models\User::byCategory($post->category_id) as $user)
-                                                        <li><a class="dropdown-item"
-                                                                href="{{ url('users', ['id' => $user->id]) }}">{{ $user->name }}</a>
-                                                        </li>
-                                                    @endforeach
-
-                                                
-                                                </ul>
                                             </li>
 
 
